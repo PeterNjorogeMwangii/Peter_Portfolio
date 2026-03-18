@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Dealership Sales Performance Dashboard | Peter Njoroge Mwangi</title>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  
+  <!-- Chat Interface ONLY -->
+  <script>
+    window.datasetId = "car_sales";
+  </script>
+  <script src="../assets/js/chat.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <h1>Car Dealership Sales Performance Dashboard</h1>
+      <p class="subtitle">Sales Analytics | Power BI Case Study</p>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html">Home</a>
+      <a href="../dashboards.html">Dashboards</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- BUSINESS PROBLEM -->
+    <section class="card">
+      <h2>Business Problem</h2>
+      <p>
+        The car dealership lacks a centralized system to monitor and analyze sales performance
+        across different car models, regions, colors, and body styles. Without clear visibility
+        into key metrics such as total sales, average price, and cars sold over time, management 
+        struggles to track trends, evaluate performance, and make data-driven decisions to improve 
+        sales growth. A dynamic Power BI dashboard is needed to provide real-time insights and support strategic decision-making.
+      </p>
+      <p>
+        For a detailed description of the business requirements, KPIs, and report design
+        decisions, you can view or download the full case document:
+      </p>
+      <!-- <p>
+        <a href="../assets/docs/Car Sales Problem Statement.docx.pdf" target="_blank">
+          Download full business requirements (PDF)
+        </a>
+      </p> -->
+      <h3 class="section-subtitle">Business Problem – Full Document</h3>
+      <!-- PDF opens in popup on button click -->
+      <button class="pdf-popup-btn" onclick="window.open('../assets/docs/Car Sales Problem Statement.docx.pdf', 'PDFPopup', 'width=800,height=600,resizable=yes,scrollbars=yes')">
+        View Business Problem Document
+      </button>
+    </section>
+
+    <!-- DOMAIN KNOWLEDGE
+    <section class="card">
+      <h2>Domain Context</h2>
+      <p>
+        This dashboard operates in the <strong>retail sales domain</strong>, where timely
+        visibility into sales KPIs is critical for inventory planning, pricing strategy,
+        and demand forecasting. Key metrics include total revenue, quantity sold,
+        average selling price, and profit contribution.
+      </p>
+      <p>
+        For a deeper dive into the retail sales domain, assumptions, and business rules
+        used in this analysis, you can view or download the full domain context document:
+      </p>
+      <p>
+        <a href="../assets/docs/sales-domain-context.pdf" target="_blank">
+          Download full domain context (PDF)
+        </a>
+      </p>
+      <h3 class="section-subtitle">Domain Context – Full Document</h3>
+      <div class="pdf-wrapper">
+        <iframe
+          src="../assets/docs/sales-domain-context.pdf"
+          title="Sales Domain Context Document">
+        </iframe>
+      </div>
+    </section> -->
+
+    <!-- DATA & MODELING -->
+    <section class="card">
+      <h2>Data & Modeling Approach</h2>
+      <ul>
+  <li>Implemented a <strong>star schema</strong> with <code>car_data</code> as the central fact table</li>
+  <li>Created a <strong>Calendar dimension table</strong> containing Date, Week, Month, and Year for time-based analysis</li>
+  <li>Established a <strong>one-to-many relationship</strong> between the Calendar table and <code>car_data</code> using the Date field</li>
+  <li>Developed <strong>DAX measures</strong> for Total Sales, Cars Sold, Average Price, and Year-over-Year (YOY) growth</li>
+</ul>
+    </section>
+
+    <!-- POWER BI DASHBOARD -->
+    <section class="card">
+      <h2>Power BI Dashboard</h2>
+      <iframe
+        title="Sales Data Modelling"
+        src="https://app.powerbi.com/view?r=eyJrIjoiMzZiYjhiYmMtZDg2OC00ZjhmLWIyMzEtZjMxM2Q3MWIwMzM5IiwidCI6ImJiNTBkYTllLWM4MDEtNDcyMS05ZmRiLTk5NGU4NzVhYjdiNiIsImMiOjh9"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+   <!-- INSIGHTS -->
+<section class="card">
+  <h2>Key Insights</h2>
+  <ul>
+    <li>The dataset contains <strong>23,906 car sales</strong> generating approximately <strong>$671.5M in total revenue</strong>, with an average sale price of about <strong>$28.1K</strong>. This highlights the large operational scale of the dealership and a strong overall sales base.</li>
+
+    <li><strong>Revenue distribution across dealer regions</strong> is relatively balanced, but <strong>Austin leads with $117.2M from 4,135 units</strong> at an average price of about <strong>$28.3K</strong>. Other strong regions include <strong>Janesville ($106.4M)</strong> and <strong>Scottsdale ($96.0M)</strong>, while the remaining regions generate between <strong>$87M–$89M</strong>. Austin’s leadership appears to be driven primarily by higher sales volume rather than pricing.</li>
+
+    <li><strong>Brand performance analysis</strong> shows that <strong>Chevrolet leads revenue with $47.7M</strong> and an average price of about <strong>$26.2K</strong>, indicating strong unit sales. <strong>Ford follows with $47.2M</strong> but at a higher average price of about <strong>$29.3K</strong>, suggesting stronger pricing power. <strong>Dodge ranks third with $44.1M</strong>, highlighting different competitive strategies across brands.</li>
+
+    <li><strong>Product mix analysis</strong> highlights key revenue-generating models including <strong>Lexus LS400 ($14.26M revenue, ~$40.3K average price)</strong>, <strong>VW Jetta ($12.29M)</strong>, <strong>Oldsmobile Silhouette ($12.27M)</strong>, and <strong>Mitsubishi Montero Sport ($11.47M)</strong>. Premium vehicles such as <strong>Cadillac Eldorado (~$41.9K average price)</strong> also demonstrate strong performance in the luxury segment.</li>
+
+    <li>The sales data reveals two successful product patterns: <strong>premium vehicles with high average prices and moderate volume</strong> (e.g., Lexus LS400, Cadillac Eldorado) and <strong>mainstream vehicles with strong sales volume and mid-range pricing</strong> (e.g., VW Jetta, Oldsmobile Silhouette). These patterns suggest different marketing and sales approaches may be required for each category.</li>
+
+    <li><strong>Customer income analysis</strong> shows that vehicle purchase prices remain relatively consistent across income groups (approximately <strong>$27.8K–$28.5K</strong>) despite significant differences in income levels. This suggests that factors such as financing options, inventory availability, or brand preference may influence purchasing decisions more than income.</li>
+
+    <li><strong>Time trend analysis</strong> shows strong revenue growth in early 2022, increasing from approximately <strong>$8.9M in January</strong> to about <strong>$22.7M by April</strong>. This may indicate seasonal demand patterns or increasing market activity as the year progresses.</li>
+  </ul>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="card">
+  <h2>Recommendations</h2>
+
+  <h3>1. Regional Sales Strategy</h3>
+  <p>
+    The dealership should analyze the drivers behind <strong>Austin’s strong sales performance</strong> and replicate
+    similar strategies in other regions where possible.
+  </p>
+  <ul>
+    <li>Identify operational or marketing practices contributing to higher sales volume in Austin</li>
+    <li>Apply successful sales tactics and promotions across other underperforming regions</li>
+    <li>Improve inventory allocation to match demand patterns across regions</li>
+  </ul>
+
+  <h3>2. Product Segmentation Strategy</h3>
+  <p>
+    Since the data reveals two strong product segments—<strong>premium vehicles and mainstream high-volume vehicles</strong>—
+    sales strategies should be tailored accordingly.
+  </p>
+  <ul>
+    <li>Promote <strong>premium vehicles</strong> through targeted marketing focused on luxury features and brand prestige</li>
+    <li>Drive volume for <strong>mainstream models</strong> using promotions, financing options, and broader advertising campaigns</li>
+    <li>Maintain a balanced inventory between premium and high-volume vehicles</li>
+  </ul>
+
+  <h3>3. Revenue Forecasting and Planning</h3>
+  <p>
+    Given the observed upward revenue trend in early 2022, the company should adopt
+    <strong>time-based forecasting methods</strong> to better predict sales performance.
+  </p>
+  <ul>
+    <li>Use rolling monthly or quarterly forecasts instead of relying on early-month sales results</li>
+    <li>Monitor seasonal demand patterns to optimize marketing campaigns and inventory planning</li>
+    <li>Adjust sales targets based on historical growth trends and demand cycles</li>
+  </ul>
+</section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <p>Email: <strong>peternjosh7365@gmail.com</strong></p>
+      <p>© 2026 Peter Njoroge Mwangi</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+# AI/LLM APIs
+groq
+openai
+
+# Data Processing
+pandas
+openpyxl
+numpy
+
+
+# Environment Variables
+python-dotenv
+
+# HTTP Requests
+requests
+
+
+# Data Visualization (optional)
+matplotlib
+seaborn
+plotly
+
+
+fastapi
+uvicorn

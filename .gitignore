@@ -1,0 +1,16 @@
+# API Keys and Secrets
+assets/js/chat-config.js
+
+# Optional: If you want to keep a template version, use:
+# assets/js/chat-config.example.js
+
+# OS Files
+.DS_Store
+Thumbs.db
+.env
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.vercel

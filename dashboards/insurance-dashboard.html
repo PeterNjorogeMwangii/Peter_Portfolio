@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Risk and Claims Analysis Dashboard | Peter Njoroge Mwangi</title>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  
+  <!-- Chat Interface ONLY -->
+  <script>
+    window.datasetId = "insurance";
+  </script>
+  <script src="../assets/js/chat.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <h1>Insurance Risk and Claims Analysis Dashboard</h1>
+      <p class="subtitle">Risk Analytics | Power BI Case Study</p>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html">Home</a>
+      <a href="../dashboards.html">Dashboards</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- BUSINESS PROBLEM -->
+    <section class="card">
+      <h2>Business Problem</h2>
+      <p>
+        The insurance company cannot easily analyze its policyholder base and claim patterns because policy 
+        and claims data are scattered across multiple sources. This makes it difficult for stakeholders to 
+        track key metrics, identify risk trends, and understand customer segments. As a result, the company 
+        lacks clear insights needed to make data-driven decisions on risk management, claims, and policy strategy.
+      </p>
+      <p>
+        For a detailed description of the business requirements, KPIs, and report design
+        decisions, you can view or download the full case document:
+      </p>
+      <h3 class="section-subtitle">Business Problem – Full Document</h3>
+      <!-- PDF opens in popup on button click -->
+      <button class="pdf-popup-btn" onclick="window.open('../assets/docs/Insurance_Risk_Claims_Analysis.pdf', 'PDFPopup', 'width=800,height=600,resizable=yes,scrollbars=yes')">
+        View Business Problem Document
+      </button>
+    </section>
+
+    <!-- DATA & MODELING -->
+    <section class="card">
+  <h2>Data & Modeling Approach</h2>
+  <ul>
+    <li>Implemented a <strong>star schema</strong> with <code>insurance_data_car</code> as the central fact table</li>
+    <li>Created multiple dimension tables including Age, Age Group, Car Color, Car Make, and Car Model for detailed analysis</li>
+    <li>Established <strong>one-to-many relationships</strong> between the fact table and dimension tables using relevant keys</li>
+    <li>Developed <strong>DAX measures</strong> for Total Claim Amount, Average Claim Amount, and demographics like Kids Driving and Gender Counts</li>
+  </ul>
+</section>
+
+    <!-- POWER BI DASHBOARD -->
+    <section class="card">
+      <h2>Power BI Dashboard</h2>
+      <iframe
+        title="Insurance Risk and Claims Analysis"
+        src="https://app.powerbi.com/view?r=eyJrIjoiNTYxOGFkZjQtNTUxOC00MjgzLTkzM2QtNGE1MDE3ODhjNWU2IiwidCI6ImJiNTBkYTllLWM4MDEtNDcyMS05ZmRiLTk5NGU4NzVhYjdiNiIsImMiOjh9"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+   <!-- INSIGHTS -->
+<section class="card">
+  <h2>Key Insights</h2>
+  <ul>
+    <li>The portfolio consists of <strong>37,541 policies</strong> with a total claim amount of approximately <strong>$187.8M</strong>, resulting in an average claim amount of about <strong>$5,003 per policy</strong> and an average claim frequency of <strong>0.51 claims per policy</strong>. This indicates a relatively stable portfolio with moderate loss exposure but opportunities to improve profitability through targeted risk segmentation.</li>
+
+    <li><strong>Exposure concentration</strong> shows that <strong>Private car use accounts for about 80% of policies and nearly 80% of total claim value</strong>. This suggests that most improvements in portfolio performance should focus on optimizing pricing and underwriting strategies within the Private segment.</li>
+
+    <li><strong>Customer distribution by education</strong> indicates that policyholders with a <strong>Bachelor’s degree represent roughly 50% of policies and claim value</strong>. While this may not directly influence risk, it highlights where the largest customer base lies, which can guide marketing and retention strategies.</li>
+
+    <li><strong>Risk segmentation analysis</strong> shows variations across groups. <strong>Urban coverage zones</strong> show slightly higher claim amounts per policy (around <strong>$5,038</strong>), households with <strong>three kids driving</strong> have higher claim frequency (about <strong>0.54 claims per policy</strong>), and drivers <strong>under 25</strong> demonstrate higher claim frequency compared to the portfolio average.</li>
+  </ul>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="card">
+  <h2>Recommendations</h2>
+
+  <h3>1. Pricing and Underwriting Improvements</h3>
+  <p>
+    The company should prioritize <strong>risk-adjusted pricing strategies</strong> within the largest exposure segments,
+    particularly <strong>Private car use policies</strong>.
+  </p>
+  <p>
+    Rather than increasing premiums broadly, pricing adjustments should focus on risk characteristics
+    associated with higher losses, including:
+  </p>
+  <ul>
+    <li>Number of <strong>Kids Driving</strong> in a household</li>
+    <li><strong>Age Group</strong>, particularly drivers <strong>under 25</strong></li>
+    <li><strong>Coverage Zone</strong>, with special attention to <strong>Urban areas</strong></li>
+  </ul>
+
+  <h3>2. Product and Risk Management Strategies</h3>
+  <p>
+    For higher-risk customer segments (for example, <strong>Urban areas combined with young drivers and
+    multiple kids driving</strong>), the company can introduce <strong>risk-reduction measures beyond pricing</strong>.
+  </p>
+  <p>Potential actions include:</p>
+  <ul>
+    <li>Offering <strong>higher deductible options</strong></li>
+    <li>Implementing <strong>telematics or usage-based insurance programs</strong> for youthful drivers</li>
+    <li>Providing <strong>driver safety programs or safe-driving discounts</strong> tied to driving behavior</li>
+  </ul>
+
+  <h3>3. Portfolio Growth and Customer Retention</h3>
+  <p>
+    Since the portfolio is heavily concentrated in the <strong>Private segment</strong>, most growth and retention
+    efforts should focus there, but with <strong>data-driven targeting</strong>.
+  </p>
+  <p>The company should:</p>
+  <ul>
+    <li>Focus <strong>customer acquisition</strong> on segments with lower claims per policy</li>
+    <li>Retain <strong>profitable customer groups</strong> through targeted incentives rather than broad discounts</li>
+  </ul>
+</section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <p>Email: <strong>peternjosh7365@gmail.com</strong></p>
+      <p>© 2026 Peter Njoroge Mwangi</p>
+    </div>
+  </footer>
+
+</body>
+</html>
