@@ -33,7 +33,25 @@ app.add_middleware(
 # Store uploaded datasets in memory
 datasets: Dict[str, pd.DataFrame] = {}
 
+# Load default datasets at startup (MOVED HERE for production)
+car_sales_path = "assets/docs/Car Sales.xlsx"
+insurance_path = "assets/docs/insurance_policies_data.xlsx"
 
+if os.path.exists(car_sales_path):
+    try:
+        df = pd.read_excel(car_sales_path)
+        datasets["car_sales"] = df
+        print(f"✓ Loaded Car Sales dataset: {len(df)} rows × {len(df.columns)} columns")
+    except Exception as e:
+        print(f"Error loading Car Sales: {e}")
+
+if os.path.exists(insurance_path):
+    try:
+        df = pd.read_excel(insurance_path)
+        datasets["insurance"] = df
+        print(f"✓ Loaded Insurance dataset: {len(df)} rows × {len(df.columns)} columns")
+    except Exception as e:
+        print(f"Error loading Insurance: {e}")
 
 class QueryRequest(BaseModel):
     dataset_id: str
@@ -68,6 +86,8 @@ def convert_to_serializable(obj):
         return None
     else:
         return obj
+
+
 
 @app.post("/upload")
 async def upload_dataset(file: UploadFile = File(...)):
@@ -379,28 +399,6 @@ app.mount("/", StaticFiles(directory=".", html=True), name="static")
 if __name__ == "__main__":
     import uvicorn
     
-    # Use relative paths (works on Render and locally)
-    car_sales_path = "assets/docs/Car Sales.xlsx"
-    insurance_path = "assets/docs/insurance_policies_data.xlsx"
-    
-    # Load default datasets for testing
-    if os.path.exists(car_sales_path):
-        try:
-            df = pd.read_excel(car_sales_path)
-            datasets["car_sales"] = df
-            print(f"✓ Loaded Car Sales dataset: {len(df)} rows × {len(df.columns)} columns")
-        except Exception as e:
-            print(f"Error loading Car Sales: {e}")
-    
-    if os.path.exists(insurance_path):
-        try:
-            df = pd.read_excel(insurance_path)
-            datasets["insurance"] = df
-            print(f"✓ Loaded Insurance dataset: {len(df)} rows × {len(df.columns)} columns")
-        except Exception as e:
-            print(f"Error loading Insurance: {e}")
-    
-    # Remove this line since we moved it outside
-    # app.mount("/", StaticFiles(directory=".", html=True), name="static")
+    # Dataset loading moved outside - no need to load again locally
     
     uvicorn.run(app, host="0.0.0.0", port=8000)
