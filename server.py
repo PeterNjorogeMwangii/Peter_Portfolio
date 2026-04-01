@@ -373,6 +373,9 @@ async def root():
 
 app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 
+# Move this OUTSIDE the if __name__ block for production
+app.mount("/", StaticFiles(directory=".", html=True), name="static")
+
 if __name__ == "__main__":
     import uvicorn
     
@@ -397,7 +400,7 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error loading Insurance: {e}")
     
-    # Serve static files (HTML, CSS, JS) from the project root
-    app.mount("/", StaticFiles(directory=".", html=True), name="static")
+    # Remove this line since we moved it outside
+    # app.mount("/", StaticFiles(directory=".", html=True), name="static")
     
     uvicorn.run(app, host="0.0.0.0", port=8000)
