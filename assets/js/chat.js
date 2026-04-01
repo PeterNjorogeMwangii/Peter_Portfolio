@@ -168,8 +168,8 @@ Keep responses clear and actionable.`;
     const datasetId = window.datasetId || 'car_sales';
     console.log('Using dataset_id:', datasetId);
     
-    // Replace with your Render service URL
-    const response = await fetch('https://peter-portfolio.onrender.com/query', {
+    // Update to your actual Render API URL
+    const response = await fetch('https://peter-portfolio-sigm.onrender.com/query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
