@@ -369,8 +369,11 @@ async def delete_dataset(dataset_id: str):
 if __name__ == "__main__":
     import uvicorn
     
+    # Use relative paths (works on Render and locally)
+    car_sales_path = "assets/docs/Car Sales.xlsx"
+    insurance_path = "assets/docs/insurance_policies_data.xlsx"
+    
     # Load default datasets for testing
-    car_sales_path = r"C:\Users\Admin\Desktop\Power BI Projects\bi-portfolio\assets\docs\Car Sales.xlsx"
     if os.path.exists(car_sales_path):
         try:
             df = pd.read_excel(car_sales_path)
@@ -379,7 +382,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error loading Car Sales: {e}")
     
-    insurance_path = r"C:\Users\Admin\Desktop\Power BI Projects\bi-portfolio\assets\docs\insurance_policies_data.xlsx"
     if os.path.exists(insurance_path):
         try:
             df = pd.read_excel(insurance_path)

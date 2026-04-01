@@ -27,5 +27,4 @@ uvicorn
 
 
 python-multipart
-gunicorn
 
