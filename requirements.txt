@@ -23,3 +23,9 @@ plotly
 
 fastapi
 uvicorn
+
+
+
+python-multipart
+gunicorn
+

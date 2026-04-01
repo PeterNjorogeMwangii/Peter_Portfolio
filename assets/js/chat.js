@@ -165,17 +165,17 @@ Keep responses clear and actionable.`;
   }
 
   async callServerAPI(question) {
-    // Always use the latest window.datasetId
     const datasetId = window.datasetId || 'car_sales';
-    console.log('Using dataset_id:', datasetId);  // Debug log to check which dataset is being used
+    console.log('Using dataset_id:', datasetId);
     
-    const response = await fetch('/query', {  // Changed back to '/query' for local server
+    // Replace with your Render service URL
+    const response = await fetch('https://peter-portfolio.onrender.com/query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             dataset_id: datasetId,
             question: question,
-            conversation_history: this.messages  // Optional, if server supports it
+            conversation_history: this.messages
         })
     });
 
@@ -185,7 +185,7 @@ Keep responses clear and actionable.`;
     }
 
     const data = await response.json();
-    return data.answer;  // Return the explanation from server
+    return data.answer;
   }
 
   addMessage(role, content, isLoading = false) {

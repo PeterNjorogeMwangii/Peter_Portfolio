@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bi-portfolio-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 4 -b 0.0.0.0:8000 --timeout 120 server:app
+    envVars:
+      - key: GROQ_API_KEY
+        scope: build
+        sync: false
+    autoDeploy: true
+    plan: free
