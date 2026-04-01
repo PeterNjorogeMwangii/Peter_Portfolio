@@ -13,6 +13,7 @@ import re
 from typing import List, Dict, Any
 import traceback
 from datetime import datetime, date
+from fastapi.responses import FileResponse
 
 # Load environment variables
 load_dotenv()
@@ -365,6 +366,12 @@ async def delete_dataset(dataset_id: str):
         del datasets[dataset_id]
         return {"message": "Dataset deleted"}
     raise HTTPException(status_code=404, detail="Dataset not found")
+
+@app.get("/", include_in_schema=False)
+async def root():
+    return FileResponse("index.html")
+
+app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 
 if __name__ == "__main__":
     import uvicorn
